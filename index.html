@@ -428,6 +428,7 @@ document.querySelectorAll('.faq-item').forEach(function(item){
 document.querySelectorAll('.btn, .nav-btn, .sticky a').forEach(function(el){
   el.addEventListener('click', function(){
     if(typeof gtag === 'function'){
+      gtag('event', 'cta_click');
       gtag('event', 'click', {
         event_category: 'buy_button',
         event_label: el.textContent.trim().replace(/\s+/g,' ').slice(0,100)
