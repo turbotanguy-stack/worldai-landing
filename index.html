@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>World AI — The AI Girl Blueprint</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQWG8YZ67K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BQWG8YZ67K');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#06101f;--card:#0c1a32;--card2:#0f1f3c;
+  --border:rgba(77,138,255,.15);--border-h:rgba(77,138,255,.4);
+  --blue:#4d8aff;--blue-l:#7aaaff;--blue-d:#2d6af6;
+  --red:#e05252;--green:#4cc97a;--text:#edf1fb;
+  --muted:#7a90b8;--muted2:#4e6080;--discord:#7289da;--r:14px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;background-image:radial-gradient(ellipse 90% 40% at 50% -5%,rgba(45,106,246,.1) 0%,transparent 65%)}
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--blue-d),var(--blue-l));z-index:9999;transition:width .08s linear}
+.top-banner{background:linear-gradient(90deg,#0d1f5c,#2d6af6,#0d1f5c);text-align:center;padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff;position:relative;overflow:hidden}
+.top-banner::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);animation:sweep 3s ease-in-out infinite}
+nav{display:flex;align-items:center;justify-content:space-between;padding:15px 28px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;background:rgba(6,16,31,.93);backdrop-filter:blur(16px)}
+nav.scrolled{box-shadow:0 4px 32px rgba(0,0,0,.45)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:800;font-size:1rem;color:var(--blue-l);letter-spacing:.04em;display:flex;align-items:center;gap:8px}
+.nav-logo::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:dot 2s ease-in-out infinite}
+.nav-btn{background:var(--blue-d);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:9px 22px;border-radius:6px;text-decoration:none;position:relative;overflow:hidden;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 2px 14px rgba(45,106,246,.4)}
+.nav-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-100%);transition:transform .45s ease}
+.nav-btn:hover{background:#3b78f5;transform:translateY(-1px);box-shadow:0 6px 22px rgba(45,106,246,.55)}
+.nav-btn:hover::after{transform:translateX(100%)}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.hero{padding:60px 0 44px;text-align:center}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.1rem,6vw,3.5rem);font-weight:800;line-height:1.08;letter-spacing:-.01em;color:#fff;margin-bottom:18px}
+h1 em{font-style:italic;color:var(--blue-l)}
+.hero-sub{font-size:clamp(.95rem,2.5vw,1.05rem);color:var(--muted);max-width:500px;margin:0 auto 36px;font-weight:300;line-height:1.7}
+.fomo-bar{display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(77,138,255,.06);border:1px solid rgba(77,138,255,.15);border-radius:999px;padding:8px 20px;margin-bottom:36px;font-size:12px;color:var(--muted)}
+.fomo-bar .dot{width:7px;height:7px;border-radius:50%;background:#4cc97a;box-shadow:0 0 8px #4cc97a;animation:dot 1.8s ease-in-out infinite;flex-shrink:0}
+.fomo-bar strong{color:var(--text)}
+
+/* VIDEO */
+.vid-wrap{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);margin-bottom:8px;aspect-ratio:3/4;max-width:400px;margin:0 auto 8px}
+.vid-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.vid-prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(77,138,255,.15);z-index:2}
+.vid-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--blue-d),var(--blue-l));transition:width .1s linear}
+@keyframes vid-start{from{width:0%}to{width:8%}}
+.vid-fill.starting{animation:vid-start .3s ease-in forwards;transition:none}
+.vid-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:3;transition:opacity .3s}
+.vid-overlay.hidden{opacity:0;pointer-events:none}
+.vid-play-btn{width:72px;height:72px;border-radius:50%;background:var(--blue-d);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 32px rgba(45,106,246,.55);animation:pulse 2s ease-in-out infinite;transition:transform .2s,background .2s}
+.vid-play-btn:hover{background:#3b78f5;transform:scale(1.1)}
+.vid-play-btn svg{width:28px;height:28px;fill:#fff;margin-left:4px}
+
+.video-label{text-align:center;font-size:11px;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--blue-d);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;padding:18px 52px;border-radius:8px;position:relative;overflow:hidden;box-shadow:0 4px 28px rgba(45,106,246,.45);transition:transform .2s,box-shadow .2s,background .2s}
+.btn::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);animation:sweep 2.4s ease-in-out infinite}
+.btn:hover{background:#3b78f5;transform:translateY(-3px);box-shadow:0 12px 40px rgba(45,106,246,.55)}
+.btn svg{transition:transform .2s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-wrap{text-align:center}
+.btn-note{text-align:center;font-size:11px;color:var(--muted2);margin-top:10px}
+.btn-note strong{color:var(--blue-l)}
+.fomo-inline{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:var(--muted);margin-top:14px}
+.fomo-inline span{color:#e07c4d;font-weight:600}
+hr{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:64px 0}
+.s-tag{display:block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.s-tag::before,.s-tag::after{content:'─ '}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.12;color:#fff;margin-bottom:14px}
+h2 em{font-style:italic;color:var(--blue-l)}
+.s-sub{color:var(--muted);font-size:.93rem;font-weight:300;max-width:520px;line-height:1.65}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 18px;text-align:center;transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .25s,box-shadow .25s}
+.stat:hover{transform:translateY(-8px);border-color:var(--border-h);box-shadow:0 16px 40px rgba(45,106,246,.14)}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:var(--blue-l);line-height:1;margin-bottom:8px}
+.stat-l{font-size:12px;color:var(--muted);font-weight:300;line-height:1.45}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:30px 22px;text-align:center;transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .25s,box-shadow .25s}
+.step-card:hover{transform:translateY(-8px);border-color:var(--border-h);box-shadow:0 16px 48px rgba(45,106,246,.16)}
+.step-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;color:var(--blue);opacity:.85;line-height:1;margin-bottom:14px}
+.step-icon{width:42px;height:42px;margin:0 auto 14px;border:1px solid rgba(77,138,255,.28);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.step-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.6}
+.step-card h3{font-size:14.5px;font-weight:700;color:#fff;margin-bottom:5px}
+.step-card .step-sub{font-style:italic;color:var(--blue-l);font-size:11.5px;margin-bottom:10px;display:block}
+.step-card p{font-size:13px;color:var(--muted);line-height:1.55;font-weight:300}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mod{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px 22px;position:relative;transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .25s,box-shadow .25s}
+.mod:hover{transform:translateY(-7px);border-color:var(--border-h);box-shadow:0 16px 48px rgba(45,106,246,.15)}
+.mod.dc{border-color:rgba(114,137,218,.2)}
+.mod.dc:hover{border-color:rgba(114,137,218,.5);box-shadow:0 16px 48px rgba(114,137,218,.13)}
+.mod-price{position:absolute;top:16px;right:16px;background:rgba(77,138,255,.1);border:1px solid rgba(77,138,255,.22);color:var(--blue-l);font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 9px;border-radius:999px}
+.mod-icon{width:36px;height:36px;border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(77,138,255,.18);background:rgba(77,138,255,.05)}
+.mod-icon svg{width:17px;height:17px;stroke:var(--blue);fill:none;stroke-width:1.6}
+.mod-icon.dc svg{stroke:var(--discord)}
+.mod h3{font-size:13.5px;font-weight:700;color:#fff;margin-bottom:7px;padding-right:50px;line-height:1.35}
+.mod p{font-size:12.5px;color:var(--muted);line-height:1.6;font-weight:300}
+.total{background:linear-gradient(135deg,rgba(45,106,246,.07),rgba(77,138,255,.03));border:1px solid rgba(77,138,255,.22);border-radius:var(--r);padding:32px;text-align:center;margin-top:20px}
+.total .tl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.total .tn{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800;color:var(--blue-l);line-height:1}
+.total .ts{font-size:12px;color:var(--muted2);margin-top:8px;font-weight:300}
+.fy{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fy-card{background:var(--card);border-radius:var(--r);padding:26px 22px;transition:transform .25s}
+.fy-card:hover{transform:translateY(-5px)}
+.fy-card.no{border:1px solid rgba(224,82,82,.18)}
+.fy-card.no:hover{box-shadow:0 10px 36px rgba(224,82,82,.08)}
+.fy-card.yes{border:1px solid rgba(76,201,122,.18)}
+.fy-card.yes:hover{box-shadow:0 10px 36px rgba(76,201,122,.08)}
+.fy-card h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:16px;line-height:1.3}
+.fy-card.no h3{color:var(--red)}
+.fy-card.yes h3{color:var(--green)}
+.fy-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.fy-list li{display:grid;grid-template-columns:12px 1fr;gap:9px;font-size:13px;color:var(--muted);line-height:1.5}
+.fy-list li span:first-child{margin-top:3px}
+.ix{color:var(--red)}.ic{color:var(--green)}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cmp{background:var(--card);border-radius:var(--r);padding:26px 22px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.cmp:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(45,106,246,.1)}
+.cmp-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:13px}
+.br{background:rgba(224,82,82,.1);color:var(--red);border:1px solid rgba(224,82,82,.22)}
+.bb{background:rgba(77,138,255,.1);color:var(--blue);border:1px solid rgba(77,138,255,.22)}
+.cmp h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:16px}
+.cmp h3.r{color:var(--red)}.cmp h3.b{color:var(--blue-l)}
+.cmp-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.cmp-list li{display:grid;grid-template-columns:12px 1fr;gap:9px;font-size:13px;color:var(--muted);line-height:1.5}
+.faq{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover,.faq-item.open{border-color:rgba(77,138,255,.28)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:17px 20px;font-weight:600;font-size:14px;color:var(--text);cursor:pointer;gap:14px;user-select:none}
+.faq-ico{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(77,138,255,.1);border:1px solid rgba(77,138,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--blue);transition:transform .3s,background .3s}
+.faq-item.open .faq-ico{transform:rotate(45deg);background:rgba(77,138,255,.18)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 20px;font-size:13.5px;color:var(--muted);line-height:1.7;font-weight:300}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 18px}
+.final{text-align:center;padding:64px 0 32px}
+.final .f-tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;display:block}
+.final h2{margin-bottom:12px}
+.final .f-sub{font-size:.93rem;color:var(--muted);font-weight:300;max-width:420px;margin:0 auto 36px;line-height:1.65}
+.final .f-by{margin-top:16px;font-size:11px;color:var(--muted2);letter-spacing:.07em;text-transform:uppercase}
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(6,16,31,.96);border-top:1px solid var(--border);padding:12px 16px calc(12px + env(safe-area-inset-bottom));backdrop-filter:blur(20px)}
+.sticky a{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue-d);color:#fff;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:15px;border-radius:8px;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(45,106,246,.4)}
+.sticky a::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:sweep 2.2s ease-in-out infinite}
+@media(max-width:680px){.sticky{display:block}footer{padding-bottom:90px}}
+footer{text-align:center;padding:40px 0;font-size:11px;color:var(--muted2)}
+@keyframes dot{0%,100%{opacity:1;box-shadow:0 0 6px var(--blue)}50%{opacity:.35;box-shadow:none}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(45,106,246,.5)}65%{box-shadow:0 0 0 18px rgba(45,106,246,0)}}
+@keyframes sweep{0%{left:-120%}100%{left:200%}}
+@keyframes reveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.r{opacity:0}.r.in{animation:reveal .5s cubic-bezier(.22,1,.36,1) forwards}
+@media(max-width:580px){
+  nav{padding:12px 16px}
+  .steps,.mods,.fy,.cmp-grid,.stats{grid-template-columns:1fr}
+  h1{font-size:2.05rem}
+  .btn{width:100%;padding:16px 20px}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<div class="top-banner">🔥 New members are joining right now — Don't get left behind</div>
+
+<nav id="nav">
+  <div class="nav-logo">World AI</div>
+  <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="nav-btn" target="_blank" rel="noopener">Get Access →</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero r">
+    <h1>The AI System That Can<br>Take You to <em>$7,490+</em><br>Per Month</h1>
+    <p class="hero-sub">A complete, step-by-step system to build a real AI-based income. No fluff. No empty promises. Just the clearest path available.</p>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="r">
+    <div class="vid-wrap" id="vidWrap">
+      <video id="vid" src="video.mp4" muted loop playsinline></video>
+      <div class="vid-overlay" id="vidOverlay">
+        <button class="vid-play-btn" id="btnPlay" aria-label="Play video">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+      </div>
+      <div class="vid-prog" id="vidProg"><div class="vid-fill" id="vidFill"></div></div>
+    </div>
+    <p class="video-label">Watch the full breakdown first</p>
+  </div>
+
+  <!-- CTA #1 -->
+  <div class="btn-wrap r">
+    <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
+      Get Your Blueprint
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="btn-note">Monthly access · <strong>Cancel anytime</strong></p>
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(76,201,122,.07);border:1px solid rgba(76,201,122,.22);border-radius:999px;padding:9px 20px;margin-top:14px;font-size:12px;color:var(--muted)">
+      <span style="width:8px;height:8px;border-radius:50%;background:#4cc97a;box-shadow:0 0 8px #4cc97a;flex-shrink:0;animation:dot 1.8s ease-in-out infinite"></span>
+      <span><strong style="color:var(--text)">4 people</strong> got the Blueprint today — don't get left behind</span>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- STATS -->
+  <div style="text-align:center;margin-bottom:32px" class="r">
+    <span class="s-tag">What's possible</span>
+    <h2>What You Can <em>Potentially Reach</em></h2>
+    <p class="s-sub" style="margin:0 auto">For members who apply the system consistently. Not a guarantee — a realistic target when you follow the right roadmap.</p>
+  </div>
+  <div class="stats r">
+    <div class="stat"><div class="stat-n">$7,490+</div><div class="stat-l">Monthly income potential</div></div>
+    <div class="stat"><div class="stat-n">15+</div><div class="stat-l">In-depth modules included</div></div>
+    <div class="stat"><div class="stat-n">1</div><div class="stat-l">Prior skill required: consistency</div></div>
+  </div>
+
+  <hr>
+
+  <!-- STEPS -->
+  <div style="text-align:center;margin-bottom:32px" class="r">
+    <span class="s-tag">How it works</span>
+    <h2>Three Phases. <em>One System.</em></h2>
+    <p class="s-sub" style="margin:0 auto">Each phase builds on the last. There's no skipping steps — and that's exactly why it works.</p>
+  </div>
+  <div class="steps r">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-5"/></svg></div>
+      <h3>Learn the craft</h3><span class="step-sub">(Tools & AI Generation)</span>
+      <p>Master the exact tools and prompts to create hyper-realistic AI content — the foundation everything else is built on.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h12"/></svg></div>
+      <h3>Build your audience</h3><span class="step-sub">(Marketing & Growth)</span>
+      <p>Apply the full marketing plan across Instagram, TikTok, Threads, Snapchat and Reddit — without paid posts or shortcuts.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+      <h3>Monetize & scale</h3><span class="step-sub">(Funneling & Recurring Income)</span>
+      <p>Activate the funnel and monetization methods to turn consistent effort into income that compounds month over month.</p>
+    </div>
+  </div>
+
+  <div class="btn-wrap r" style="margin-top:36px">
+    <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
+      I Want This System
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="fomo-inline">🔥 <span>Others are already inside and building their income</span></div>
+  </div>
+
+  <hr>
+
+  <!-- MODULES -->
+  <div style="text-align:center;margin-bottom:32px" class="r">
+    <span class="s-tag">Everything included</span>
+    <h2>Inside the <em>Blueprint</em></h2>
+    <p class="s-sub" style="margin:0 auto">Every module eliminates a specific point where most people get stuck and give up.</p>
+  </div>
+  <div class="mods">
+    <div class="mod r"><div class="mod-price">$177</div><div class="mod-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M3 9h18M3 15h18"/></svg></div><h3>Ultra Realistic AI Generation</h3><p>The exact tools, models and prompts to create hyper-realistic AI visuals that build trust from the very first post.</p></div>
+    <div class="mod r"><div class="mod-price">$187</div><div class="mod-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Full Marketing Plan</h3><p>Step-by-step growth strategy across all major platforms — without spending a cent on promotion.</p></div>
+    <div class="mod r"><div class="mod-price">$137</div><div class="mod-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>A Safe Roadmap</h3><p>The exact method to create and warm up accounts without getting banned or shadowbanned — your business stays protected.</p></div>
+    <div class="mod r"><div class="mod-price">$182</div><div class="mod-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3>Monetization Methods</h3><p>The apps and platforms that turn any type of client into recurring revenue — multiple streams at once.</p></div>
+    <div class="mod r"><div class="mod-price">$152</div><div class="mod-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Chatting Plan</h3><p>Scripts and methods that engage your community and convert interactions into sales at a high rate.</p></div>
+    <div class="mod dc r"><div class="mod-price">$115</div><div class="mod-icon dc"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></div><h3>Private Discord Community</h3><p>What most people underestimate. Networking with others on the same path accelerates everything — consistently the part members value most.</p></div>
+  </div>
+
+  <div class="total r">
+    <div class="tl">Total value of everything included</div>
+    <div class="tn">Easily $950</div>
+    <div class="ts">All modules · Discord community · All future updates</div>
+    <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(77,138,255,.15);font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--blue-l);line-height:1.5">With over 200 slides of pure knowledge and experience,<br>nothing is left apart.</div>
+  </div>
+
+  <div class="btn-wrap r" style="margin-top:28px">
+    <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
+      Get Access Now
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="btn-note">Monthly subscription · <strong>Cancel anytime</strong></p>
+  </div>
+
+  <hr>
+
+  <!-- FOR YOU -->
+  <div style="text-align:center;margin-bottom:32px" class="r">
+    <span class="s-tag">Qualification</span>
+    <h2>Is This <em>for You</em>?</h2>
+  </div>
+  <div class="fy">
+    <div class="fy-card no r">
+      <h3>Not for you if:</h3>
+      <ul class="fy-list">
+        <li><span class="ix">✕</span><span>You want instant money without learning a real skill</span></li>
+        <li><span class="ix">✕</span><span>You expect results in days or weeks</span></li>
+        <li><span class="ix">✕</span><span>You jump trends instead of committing to one path</span></li>
+        <li><span class="ix">✕</span><span>You need constant external motivation just to act</span></li>
+      </ul>
+    </div>
+    <div class="fy-card yes r">
+      <h3>Built for you if:</h3>
+      <ul class="fy-list">
+        <li><span class="ic">✓</span><span>You understand real income requires real, consistent work</span></li>
+        <li><span class="ic">✓</span><span>You want structure so no effort is ever wasted</span></li>
+        <li><span class="ic">✓</span><span>You're tired of vague advice — you want a concrete system</span></li>
+        <li><span class="ic">✓</span><span>Once shown the playbook, you'll execute until results come</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- COMPARE -->
+  <div style="text-align:center;margin-bottom:32px" class="r">
+    <span class="s-tag">The difference</span>
+    <h2>With a System vs. <em>Without One</em></h2>
+  </div>
+  <div class="cmp-grid">
+    <div class="cmp r">
+      <div class="cmp-badge br">No system</div>
+      <h3 class="r">Figuring It Out Alone</h3>
+      <ul class="cmp-list">
+        <li><span class="ix">✕</span><span>Random tools, no direction</span></li>
+        <li><span class="ix">✕</span><span>No audience, no strategy</span></li>
+        <li><span class="ix">✕</span><span>Banned or shadowbanned quickly</span></li>
+        <li><span class="ix">✕</span><span>Can't convert followers into revenue</span></li>
+        <li><span class="ix">✕</span><span>Months wasted, zero results</span></li>
+      </ul>
+    </div>
+    <div class="cmp r">
+      <div class="cmp-badge bb">The Blueprint</div>
+      <h3 class="b">A Clear Path Forward</h3>
+      <ul class="cmp-list">
+        <li><span class="ic">✓</span><span>Proven tools and exact prompts</span></li>
+        <li><span class="ic">✓</span><span>Multi-platform growth roadmap</span></li>
+        <li><span class="ic">✓</span><span>Safe method — protected from day one</span></li>
+        <li><span class="ic">✓</span><span>Scripts that convert at a high rate</span></li>
+        <li><span class="ic">✓</span><span>Community of people on the same path</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="btn-wrap r" style="margin-top:36px">
+    <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
+      I Want Access To All Of This
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+  <hr>
+
+  <!-- FAQ -->
+  <div style="text-align:center;margin-bottom:32px" class="r">
+    <span class="s-tag">FAQ</span>
+    <h2>Your Questions, <em>Answered</em></h2>
+  </div>
+  <div class="faq r">
+    <div class="faq-item"><div class="faq-q">Do I need technical skills or experience?<div class="faq-ico">+</div></div><div class="faq-a">None at all. Every step is explained from scratch. If you can use a smartphone and are willing to learn, you can follow this system from day one.</div></div>
+    <div class="faq-item"><div class="faq-q">How long before I see real results?<div class="faq-ico">+</div></div><div class="faq-a">Anyone giving you a specific timeline isn't being honest. Results depend entirely on how consistently you apply the system. What the Blueprint ensures is that your effort always goes in the right direction — nothing wasted.</div></div>
+    <div class="faq-item"><div class="faq-q">How does the subscription work?<div class="faq-ico">+</div></div><div class="faq-a">Monthly access. You get all modules, the Discord community, and all future updates for as long as you're subscribed. Cancel anytime directly from your Whop dashboard.</div></div>
+    <div class="faq-item"><div class="faq-q">What if I have no audience yet?<div class="faq-ico">+</div></div><div class="faq-a">That's exactly who this is built for. The full marketing plan shows you how to grow from zero across multiple platforms — no existing following required.</div></div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final r">
+    <span class="f-tag">Ready?</span>
+    <h2>The System Is Built.<br>The Variable Is <em>Your Work.</em></h2>
+    <p class="f-sub">If you're serious about building a real AI-based income and ready to commit to the process — the clearest path available is right here.</p>
+    <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
+      Get Your Blueprint
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="fomo-inline" style="margin-top:14px;font-style:italic;color:var(--muted);font-size:13px;gap:6px">
+      <span style="color:var(--blue-l)">"</span><span>The best time to plant a tree was years ago. The second best time is now.</span><span style="color:var(--blue-l)">"</span>
+    </div>
+    <p class="f-by">By Tanguy · World AI · Monthly access · Cancel anytime</p>
+  </div>
+
+</div>
+
+<footer>© 2025 World AI — All rights reserved</footer>
+
+<div class="sticky">
+  <a href="https://whop.com/joined/world-ai-off/products/ll-89/" target="_blank" rel="noopener">
+    Get Your Blueprint — Join Now
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<script>
+// Scroll progress
+var prog = document.getElementById('prog');
+var navEl = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  var h = document.documentElement;
+  prog.style.width = (window.scrollY / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  navEl.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+// Reveal on scroll
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e, i){
+    if(e.isIntersecting){
+      setTimeout(function(){ e.target.classList.add('in'); }, i * 55);
+      ro.unobserve(e.target);
+    }
+  });
+}, {threshold:.08, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.r').forEach(function(el){ ro.observe(el); });
+
+// FAQ
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.faq-q').addEventListener('click', function(){
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+    if(!open) item.classList.add('open');
+  });
+});
+
+// Buy button click tracking
+document.querySelectorAll('.btn, .nav-btn, .sticky a').forEach(function(el){
+  el.addEventListener('click', function(){
+    if(typeof gtag === 'function'){
+      gtag('event', 'click', {
+        event_category: 'buy_button',
+        event_label: el.textContent.trim().replace(/\s+/g,' ').slice(0,100)
+      });
+    }
+  });
+});
+
+// Video player
+(function(){
+  var vid     = document.getElementById('vid');
+  var fill    = document.getElementById('vidFill');
+  var vidProg = document.getElementById('vidProg');
+  var overlay = document.getElementById('vidOverlay');
+  var btnPlay = document.getElementById('btnPlay');
+  if(!vid || !fill) return;
+  btnPlay.addEventListener('click', function(){
+    vid.muted = false;
+    vid.play();
+    overlay.classList.add('hidden');
+    fill.classList.add('starting');
+  });
+  vid.addEventListener('click', function(){
+    vid.paused ? vid.play() : vid.pause();
+  });
+  fill.addEventListener('animationend', function(){
+    fill.classList.remove('starting');
+  });
+  vid.addEventListener('timeupdate', function(){
+    if(!vid.duration) return;
+    var pct = vid.currentTime / vid.duration * 100;
+    if(!fill.classList.contains('starting') || pct > 8){
+      fill.classList.remove('starting');
+      fill.style.width = pct + '%';
+    }
+  });
+})();
+</script>
+</body>
+</html>
