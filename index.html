@@ -18,12 +18,12 @@ nav{position:relative;z-index:10;display:flex;align-items:center;justify-content
 .nav-price{font-size:12px;color:var(--muted);font-weight:300}
 .nav-price strong{color:var(--text)}
 .wrap{position:relative;z-index:1;max-width:580px;margin:0 auto;padding:0 20px}
-.hero-img{position:relative;z-index:1;width:100%;max-height:420px;object-fit:cover;object-position:center top;display:block;opacity:0;animation:up .7s .1s forwards}
-.hero{padding:32px 0 28px;text-align:center}
-.hook{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,5rem);line-height:.92;letter-spacing:.03em;color:#fff;margin-bottom:14px;opacity:0;animation:up .6s .2s forwards}
-.hook-arrows{display:block;font-size:1.4rem;letter-spacing:.3em;color:var(--blue);margin-bottom:18px;opacity:0;animation:up .6s .3s forwards}
-.hook-price{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,5vw,2.2rem);line-height:1.15;letter-spacing:.06em;color:var(--blue);margin-bottom:28px;opacity:0;animation:up .6s .4s forwards}
-.hero-sub{font-size:.95rem;color:var(--muted);font-weight:300;max-width:380px;margin:0 auto 28px;opacity:0;animation:up .6s .5s forwards}
+.hero-img{position:relative;z-index:1;width:100%;max-height:220px;object-fit:cover;object-position:center top;display:block;margin:0 auto 32px;border-radius:14px;border:1px solid var(--border);opacity:0;animation:up .7s .5s forwards}
+.hero{padding:40px 0 24px;text-align:center}
+.hook{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,13vw,6.5rem);line-height:.88;letter-spacing:.02em;color:#fff;margin-bottom:16px;opacity:0;animation:up .6s .1s forwards}
+.hook-arrows{display:block;font-size:1.6rem;letter-spacing:.35em;color:var(--blue);margin-bottom:20px;opacity:0;animation:up .6s .2s forwards}
+.hook-price{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,6vw,2.8rem);line-height:1.1;letter-spacing:.05em;color:var(--blue);margin-bottom:32px;opacity:0;animation:up .6s .3s forwards}
+.hero-sub{display:none}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-d);color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:17px 44px;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(45,106,246,.4);transition:transform .2s,box-shadow .2s,background .2s}
 .btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:sweep 2.4s ease-in-out infinite}
 .btn:hover{background:#3b78f5;transform:translateY(-2px);box-shadow:0 10px 40px rgba(45,106,246,.55)}
@@ -36,10 +36,11 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,6vw,2.6rem);letter
 
 /* CAROUSEL */
 .carousel-section{margin:0 -20px;position:relative}
-.carousel-track-wrap{overflow:hidden;cursor:grab;user-select:none}
+.carousel-track-wrap{overflow-x:scroll;overflow-y:hidden;cursor:grab;user-select:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;scrollbar-width:none}
+.carousel-track-wrap::-webkit-scrollbar{display:none}
 .carousel-track-wrap:active{cursor:grabbing}
 .carousel-track{display:flex;gap:12px;padding:0 20px 16px}
-.carousel-slide{flex-shrink:0;width:78vw;max-width:340px;border-radius:12px;overflow:hidden;border:1px solid var(--border);position:relative}
+.carousel-slide{flex-shrink:0;width:78vw;max-width:340px;border-radius:12px;overflow:hidden;border:1px solid var(--border);position:relative;scroll-snap-align:start}
 .carousel-slide img{width:100%;display:block;pointer-events:none}
 .carousel-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,16,31,.85));padding:20px 14px 12px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .carousel-dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
@@ -141,15 +142,14 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
   <div class="nav-price"><strong>$15</strong> / mo · Cancel anytime</div>
 </nav>
 
-<img src="cover.png" alt="World AI" class="hero-img">
-
 <div class="wrap">
   <div class="hero">
     <span class="hook">AI GIRL<br>BLUEPRINT</span>
     <span class="hook-arrows">↓ ↓ ↓</span>
     <span class="hook-price">LESS THAN A NETFLIX SUBSCRIPTION<br>— THIS ONE PAYS YOU BACK ($15)</span>
-    <p class="hero-sub">The complete step-by-step system to create hyper-realistic AI influencers and turn followers into real income.</p>
   </div>
+
+  <img src="cover.png" alt="World AI" class="hero-img">
 
   <div class="btn-wrap reveal">
     <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
@@ -164,7 +164,6 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 
 <div class="wrap">
   <hr class="divider">
-  <span class="section-label reveal">How it works</span>
   <h2 class="reveal">THE FULL SYSTEM</h2>
   <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:1.5rem;letter-spacing:.08em;text-transform:uppercase" class="reveal">Click each step</p>
 
@@ -243,7 +242,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target)}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
 
-// ── CAROUSEL — slow smooth auto-scroll, manual drag ──
+// ── CAROUSEL — native scroll with momentum ──
 (function(){
   var wrap=document.getElementById('trackWrap');
   var track=document.getElementById('track');
@@ -251,79 +250,42 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
   var slides=track.querySelectorAll('.carousel-slide');
   var total=slides.length;
   var current=0;
-  var isDragging=false,startX=0,scrollStart=0;
-  var autoRaf,pauseTimer,userActive=false;
+  var autoTimer,pauseTimer;
 
   function sw(){return slides[0].offsetWidth+12}
 
-  function updateDots(i){
-    dots.forEach(function(d,j){d.classList.toggle('active',j===i)});
+  function updateDots(){
+    var i=Math.round(wrap.scrollLeft/sw());
+    current=Math.max(0,Math.min(i,total-1));
+    dots.forEach(function(d,j){d.classList.toggle('active',j===current)});
   }
 
-  // Slow smooth scroll to a position
-  function smoothScrollTo(target,duration){
-    var start=wrap.scrollLeft,diff=target-start,t0=null;
-    function frame(ts){
-      if(!t0)t0=ts;
-      var p=Math.min((ts-t0)/duration,1);
-      var e=p<.5?2*p*p:-1+(4-2*p)*p; // ease in-out
-      wrap.scrollLeft=start+diff*e;
-      var idx=Math.round(wrap.scrollLeft/sw())%total;
-      updateDots(idx);
-      if(p<1)autoRaf=requestAnimationFrame(frame);
-      else{current=(Math.round(target/sw()))%total;updateDots(current);startSlowAuto();}
-    }
-    cancelAnimationFrame(autoRaf);
-    autoRaf=requestAnimationFrame(frame);
+  function goTo(i){
+    current=Math.max(0,Math.min(i,total-1));
+    wrap.scrollTo({left:current*sw(),behavior:'smooth'});
+    dots.forEach(function(d,j){d.classList.toggle('active',j===current)});
   }
 
-  // Auto advance — very slow, one slide at a time
-  function startSlowAuto(){
-    cancelAnimationFrame(autoRaf);
-    clearTimeout(pauseTimer);
-    if(userActive)return;
-    pauseTimer=setTimeout(function(){
-      var next=((current+1)%total)*sw();
-      smoothScrollTo(next,1800); // 1.8s per slide — slow like a finger
+  function startAuto(){
+    clearInterval(autoTimer);
+    autoTimer=setInterval(function(){
+      var next=(current+1)%total;
+      goTo(next);
     },3500);
   }
 
   function pauseAuto(){
-    cancelAnimationFrame(autoRaf);
+    clearInterval(autoTimer);
     clearTimeout(pauseTimer);
+    pauseTimer=setTimeout(startAuto,6000);
   }
 
-  // Touch
-  wrap.addEventListener('touchstart',function(e){
-    userActive=true;pauseAuto();
-    startX=e.touches[0].clientX;scrollStart=wrap.scrollLeft;
-  },{passive:true});
-  wrap.addEventListener('touchmove',function(e){
-    wrap.scrollLeft=scrollStart-(e.touches[0].clientX-startX);
-  },{passive:true});
-  wrap.addEventListener('touchend',function(){
-    current=Math.round(wrap.scrollLeft/sw())%total;
-    updateDots(current);
-    userActive=false;startSlowAuto();
-  },{passive:true});
+  // Native scroll handles all touch momentum automatically
+  wrap.addEventListener('scroll',function(){updateDots()},{passive:true});
+  wrap.addEventListener('touchstart',function(){pauseAuto()},{passive:true});
+  wrap.addEventListener('mousedown',function(){pauseAuto()});
 
-  // Mouse drag
-  wrap.addEventListener('mousedown',function(e){
-    userActive=true;pauseAuto();
-    isDragging=true;startX=e.clientX;scrollStart=wrap.scrollLeft;wrap.style.cursor='grabbing';
-  });
-  window.addEventListener('mousemove',function(e){
-    if(!isDragging)return;wrap.scrollLeft=scrollStart-(e.clientX-startX);
-  });
-  window.addEventListener('mouseup',function(){
-    if(!isDragging)return;
-    isDragging=false;wrap.style.cursor='grab';
-    current=Math.round(wrap.scrollLeft/sw())%total;
-    updateDots(current);
-    userActive=false;startSlowAuto();
-  });
-
-  startSlowAuto();
+  startAuto();
 })();
 
 // ── CIRCLE ──
