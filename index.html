@@ -202,6 +202,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
     <div class="carousel-track-wrap" id="trackWrap">
       <div class="carousel-track" id="track">
         <div class="carousel-slide"><img src="consistent_face.png" alt="Consistent Face"><div class="carousel-caption">Consistent face — every photo</div></div>
+        <div class="carousel-slide carousel-slide-video"><video src="videos_examples.mp4" autoplay muted loop playsinline style="width:100%;display:block;pointer-events:none"></video><div class="carousel-caption">Real video examples</div></div>
         <div class="carousel-slide"><img src="NSFW__blurry_.png" alt="NSFW Content"><div class="carousel-caption">NSFW content included</div></div>
         <div class="carousel-slide"><img src="funelling_plan.png" alt="Funneling Plan"><div class="carousel-caption">Complete funnel — followers to income</div></div>
         <div class="carousel-slide"><img src="all_marketing_apps.png" alt="Marketing"><div class="carousel-caption">6 platforms — full strategy</div></div>
@@ -210,7 +211,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
       </div>
     </div>
     <div class="carousel-dots" id="dots">
-      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
     </div>
   </div>
 
@@ -291,7 +292,7 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
 // ── CIRCLE ──
 (function(){
   var canvas=document.getElementById('circleCanvas'),ctx=canvas.getContext('2d');
-  var W=300,H=300,CX=150,CY=150,R=100,angle=0,paused=false,activeStep=-1,GAP=0.58;
+  var W=300,H=300,CX=150,CY=150,R=100,angle=0,activeStep=-1,GAP=0.58;
   var steps=[
     {label:'Social Media', img:'logo_instagram.png', a:-Math.PI/2},
     {label:'Monetization',  img:'logo_fanvue.jpg',   a:-Math.PI/2+(2*Math.PI/3)},
@@ -299,6 +300,34 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
   ];
   var imgs=[];
   steps.forEach(function(s,i){if(s.img){var im=new Image();im.src=s.img;imgs[i]=im;}else imgs[i]=null;});
+
+  // Always rotating — never stops
+  (function rot(){
+    angle=(angle+0.15)%360;
+    draw();
+    requestAnimationFrame(rot);
+  })();
+
+  // Auto-step every 7s — stops on click
+  var autoStepTimer=null;
+  var userClickedOnce=false;
+
+  function startAutoStep(){
+    clearInterval(autoStepTimer);
+    autoStepTimer=setInterval(function(){
+      var next=(activeStep+1)%steps.length;
+      activeStep=next;
+      renderPanel(next);
+    },7000);
+  }
+
+  function stopAutoStep(){
+    clearInterval(autoStepTimer);
+    autoStepTimer=null;
+  }
+
+  // Start auto after 2s
+  setTimeout(startAutoStep,2000);
 
   function drawArrow(fromA,toA,rot){
     var a0=fromA+rot+GAP,a1=toA+rot-GAP;
@@ -337,12 +366,15 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
 
   function handleClick(mx,my){
     var hit=getHit(mx,my);
-    if(hit>=0){if(activeStep===hit){activeStep=-1;paused=false;renderPanel(-1);}else{activeStep=hit;paused=true;renderPanel(hit);}}
+    if(hit>=0){
+      stopAutoStep(); // stop auto on first click
+      if(activeStep===hit){activeStep=-1;renderPanel(-1);}
+      else{activeStep=hit;renderPanel(hit);}
+    }
   }
 
   canvas.addEventListener('click',function(e){var r=canvas.getBoundingClientRect();handleClick((e.clientX-r.left)*(W/r.width),(e.clientY-r.top)*(H/r.height))});
   canvas.addEventListener('touchend',function(e){e.preventDefault();var t=e.changedTouches[0],r=canvas.getBoundingClientRect();handleClick((t.clientX-r.left)*(W/r.width),(t.clientY-r.top)*(H/r.height))},{passive:false});
-  (function loop(){if(!paused)angle=(angle+0.15)%360;draw();requestAnimationFrame(loop)})();
 })();
 
 // ── PANEL ──
