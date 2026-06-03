@@ -638,7 +638,7 @@ function animChat(wrap,idx){
     animTo(25000,2500,null);
     [300,600,900,1300,1800,2300].forEach(function(t,i){setTimeout(function(){for(var k=0;k<(5-i);k++)spawnBill()},t)});
     billT=setInterval(spawnBill,500);
-    resetT=setTimeout(reset,20000);
+    resetT=setTimeout(reset,8000);
   }
 
   function reset(){
