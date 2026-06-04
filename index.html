@@ -52,7 +52,7 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,6vw,2.6rem);letter
 .circle-zone canvas{position:absolute;inset:0;width:100%;height:100%}
 
 /* DETAIL PANEL */
-.detail-panel{min-height:150px;border-radius:12px;border:1px solid var(--border);background:var(--card);padding:1rem 1.1rem;margin-bottom:1rem;transition:border-color .3s}
+.detail-panel{min-height:320px;border-radius:12px;border:1px solid var(--border);background:var(--card);padding:1rem 1.1rem;margin-bottom:1rem;transition:border-color .3s}
 .detail-panel.active{border-color:var(--blue)}
 .panel-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .panel-hint{font-size:12px;color:var(--muted)}
@@ -338,7 +338,7 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
     ctx.strokeStyle=isA?'#4d8aff':'rgba(255,255,255,0.7)';ctx.lineWidth=isA?2.5:1.8;ctx.stroke();
     ctx.restore();
 
-    var s=r*0.7;
+    var s=r*0.9;
     ctx.save();ctx.translate(nx,ny);
     if(type==='phone'){
       // Phone icon
@@ -638,7 +638,7 @@ function animChat(wrap,idx){
     animTo(25000,2500,null);
     [300,600,900,1300,1800,2300].forEach(function(t,i){setTimeout(function(){for(var k=0;k<(5-i);k++)spawnBill()},t)});
     billT=setInterval(spawnBill,500);
-    resetT=setTimeout(reset,8000);
+    resetT=setTimeout(reset,5000);
   }
 
   function reset(){
@@ -654,7 +654,7 @@ function animChat(wrap,idx){
     var autoVal=500;
     autoT=setInterval(function(){
       if(userTouched||exploded)return;
-      var speed=10+Math.pow((autoVal-500)/9500,2)*160;
+      var speed=14+Math.pow((autoVal-500)/9500,2)*200;
       autoVal=Math.min(autoVal+speed,10000);
       if(autoVal>=10000){clearInterval(autoT);slider.value=10000;triggerExplosion();return}
       slider.value=autoVal;animTo(autoVal,60,null);
