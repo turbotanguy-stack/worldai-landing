@@ -22,7 +22,7 @@ nav{position:relative;z-index:10;display:flex;align-items:center;justify-content
 .hero{padding:40px 0 24px;text-align:center}
 .hook{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,13vw,6.5rem);line-height:.88;letter-spacing:.02em;color:#fff;margin-bottom:16px;opacity:0;animation:up .6s .1s forwards}
 .hook-arrows{display:block;font-size:1.6rem;letter-spacing:.35em;color:var(--blue);margin-bottom:20px;opacity:0;animation:up .6s .2s forwards}
-.hook-price{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,8vw,3.8rem);line-height:1.1;letter-spacing:.05em;color:var(--blue);margin-bottom:32px;opacity:0;animation:up .6s .3s forwards}
+.hook-price{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,9vw,4rem);line-height:1.1;letter-spacing:.05em;color:var(--blue);margin-bottom:32px;opacity:0;animation:up .6s .3s forwards}
 .hero-sub{display:none}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-d);color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:17px 44px;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(45,106,246,.4);transition:transform .2s,box-shadow .2s,background .2s}
 .btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:sweep 2.4s ease-in-out infinite}
@@ -48,11 +48,11 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,6vw,2.6rem);letter
 .dot.active{background:var(--blue);transform:scale(1.3)}
 
 /* CIRCLE */
-.circle-zone{position:relative;width:360px;height:360px;margin:0 auto 1.2rem;cursor:pointer}
+.circle-zone{position:relative;width:380px;height:380px;margin:0 auto 1.2rem;cursor:pointer}
 .circle-zone canvas{position:absolute;inset:0;width:100%;height:100%}
 
 /* DETAIL PANEL */
-.detail-panel{min-height:320px;border-radius:12px;border:1px solid var(--border);background:var(--card);padding:1rem 1.1rem;margin-bottom:1rem;transition:border-color .3s}
+.detail-panel{height:500px;min-height:500px;border-radius:12px;border:1px solid var(--border);background:var(--card);padding:1.2rem 1.1rem;margin-bottom:1rem;transition:border-color .3s;overflow:hidden}
 .detail-panel.active{border-color:var(--blue)}
 .panel-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .panel-hint{font-size:12px;color:var(--muted)}
@@ -83,28 +83,28 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,6vw,2.6rem);letter
 .panel-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px;font-weight:300}
 
 /* iPhone mockup */
-.iphone-wrap{display:flex;justify-content:center;margin-top:10px}
-.iphone-body{width:90px;background:#1a1a1a;border-radius:14px;padding:6px;box-shadow:0 4px 20px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.1)}
-.iphone-notch{width:28px;height:6px;background:#0a0a0a;border-radius:3px;margin:0 auto 4px}
-.iphone-screen{background:linear-gradient(160deg,#1a0a3a,#0a1a4a);border-radius:8px;overflow:hidden;min-height:130px;position:relative}
+.iphone-wrap{display:flex;justify-content:center;margin-top:14px}
+.iphone-body{width:140px;background:#1a1a1a;border-radius:20px;padding:8px;box-shadow:0 4px 20px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.1)}
+.iphone-notch{width:36px;height:7px;background:#0a0a0a;border-radius:4px;margin:0 auto 5px}
+.iphone-screen{background:linear-gradient(160deg,#1a0a3a,#0a1a4a);border-radius:12px;overflow:hidden;min-height:200px;position:relative}
 
 /* Instagram feed */
-.ig-screen{padding:4px}
-.ig-post{background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;margin-bottom:3px}
-.ig-img{width:100%;height:45px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.ig-actions{display:flex;gap:6px;padding:3px 4px;font-size:11px}
+.ig-screen{padding:6px}
+.ig-post{background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden;margin-bottom:5px}
+.ig-img{width:100%;height:70px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ig-actions{display:flex;gap:8px;padding:5px 6px;font-size:15px}
 .ig-heart{transition:transform .18s;display:inline-block;cursor:pointer}
 
 /* Notif screen */
-.notif-screen{padding:8px 5px;display:flex;flex-direction:column;align-items:center}
-.iphone-time{font-size:18px;font-weight:300;color:#fff;text-align:center;margin-top:4px}
-.iphone-date{font-size:8px;color:rgba(255,255,255,.6);text-align:center;margin-bottom:8px}
-.iphone-notif{background:rgba(255,255,255,.92);border-radius:8px;padding:6px 7px;width:100%;backdrop-filter:blur(8px)}
-.iphone-notif-header{display:flex;align-items:center;gap:4px;margin-bottom:3px}
-.iphone-notif-icon{width:14px;height:14px;background:#16a34a;border-radius:3px;font-size:8px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center}
-.iphone-notif-app{font-size:8px;font-weight:600;color:#333;flex:1}
-.iphone-notif-time{font-size:7px;color:#888}
-.iphone-notif-text{font-size:8px;color:#222;line-height:1.4}
+.notif-screen{padding:10px 7px;display:flex;flex-direction:column;align-items:center}
+.iphone-time{font-size:28px;font-weight:300;color:#fff;text-align:center;margin-top:6px}
+.iphone-date{font-size:10px;color:rgba(255,255,255,.6);text-align:center;margin-bottom:14px}
+.iphone-notif{background:rgba(255,255,255,.92);border-radius:10px;padding:8px 9px;width:100%;backdrop-filter:blur(8px)}
+.iphone-notif-header{display:flex;align-items:center;gap:5px;margin-bottom:4px}
+.iphone-notif-icon{width:18px;height:18px;background:#16a34a;border-radius:4px;font-size:10px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center}
+.iphone-notif-app{font-size:10px;font-weight:600;color:#333;flex:1}
+.iphone-notif-time{font-size:9px;color:#888}
+.iphone-notif-text{font-size:10px;color:#222;line-height:1.5}
 .iphone-notif-text strong{color:#16a34a}
 
 .sarrow{display:flex;flex-direction:column;align-items:center;padding:4px 0}
@@ -149,9 +149,9 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 @media(max-width:520px){
   nav{padding:14px 18px}
   .hook{font-size:clamp(2.4rem,12vw,4rem)}
-  .hook-price{font-size:clamp(1.1rem,4.5vw,1.6rem)}
+  .hook-price{font-size:clamp(2rem,8vw,3.2rem)}
   .btn{width:100%;padding:16px 20px;justify-content:center}
-  .circle-zone{width:260px;height:260px}
+  .circle-zone{width:320px;height:320px}
   .price-block{padding:24px 16px}
   .price-num{font-size:4rem}
   .sticky{display:block}
@@ -194,7 +194,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 
   <!-- CIRCLE -->
   <div class="circle-zone reveal">
-    <canvas id="circleCanvas" width="360" height="360"></canvas>
+    <canvas id="circleCanvas" width="380" height="380"></canvas>
   </div>
 
   <!-- DETAIL PANEL -->
@@ -321,7 +321,7 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
 // ── CIRCLE ──
 (function(){
   var canvas=document.getElementById('circleCanvas'),ctx=canvas.getContext('2d');
-  var W=360,H=360,CX=180,CY=180,R=125,angle=0,activeStep=-1,GAP=0.58;
+  var W=380,H=380,CX=190,CY=190,R=135,angle=0,activeStep=-1,GAP=0.52;
   var steps=[
     {label:'Social Media', svg:'phone',  a:-Math.PI/2},
     {label:'Monetization',  svg:'money',  a:-Math.PI/2+(2*Math.PI/3)},
@@ -338,7 +338,7 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
     ctx.strokeStyle=isA?'#4d8aff':'rgba(255,255,255,0.7)';ctx.lineWidth=isA?2.5:1.8;ctx.stroke();
     ctx.restore();
 
-    var s=r*0.9;
+    var s=r*1.1;
     ctx.save();ctx.translate(nx,ny);
     if(type==='phone'){
       // Phone icon
@@ -398,26 +398,36 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
     requestAnimationFrame(rot);
   })();
 
-  // Auto-step every 7s — stops on click
+  // Auto-step every 9s — resumes after 30s on click
   var autoStepTimer=null;
   var userClickedOnce=false;
 
   function startAutoStep(){
-    clearInterval(autoStepTimer);
-    autoStepTimer=setInterval(function(){
-      var next=(activeStep+1)%steps.length;
-      activeStep=next;
-      renderPanel(next);
-    },7000);
+    clearTimeout(autoStepTimer);
+    function scheduleNext(){
+      var delay=(activeStep===-1)?100:9000;
+      autoStepTimer=setTimeout(function(){
+        var next=activeStep+1;
+        if(next>=steps.length) next=0; // boucle infinie
+        activeStep=next;
+        renderPanel(next);
+        scheduleNext();
+      },delay);
+    }
+    scheduleNext();
   }
 
   function stopAutoStep(){
-    clearInterval(autoStepTimer);
+    clearTimeout(autoStepTimer);
     autoStepTimer=null;
+    // reprend automatiquement après 30s
+    autoStepTimer=setTimeout(function(){
+      startAutoStep();
+    },30000);
   }
 
-  // Start auto after 2s
-  setTimeout(startAutoStep,2000);
+  // Start auto after 100ms
+  setTimeout(startAutoStep,100);
 
   function drawArrow(fromA,toA,rot){
     var a0=fromA+rot+GAP,a1=toA+rot-GAP;
@@ -638,7 +648,7 @@ function animChat(wrap,idx){
     animTo(25000,2500,null);
     [300,600,900,1300,1800,2300].forEach(function(t,i){setTimeout(function(){for(var k=0;k<(5-i);k++)spawnBill()},t)});
     billT=setInterval(spawnBill,500);
-    resetT=setTimeout(reset,5000);
+    resetT=setTimeout(reset,13000);
   }
 
   function reset(){
@@ -654,7 +664,7 @@ function animChat(wrap,idx){
     var autoVal=500;
     autoT=setInterval(function(){
       if(userTouched||exploded)return;
-      var speed=14+Math.pow((autoVal-500)/9500,2)*200;
+      var speed=14+Math.pow((autoVal-500)/9500,2)*220;
       autoVal=Math.min(autoVal+speed,10000);
       if(autoVal>=10000){clearInterval(autoT);slider.value=10000;triggerExplosion();return}
       slider.value=autoVal;animTo(autoVal,60,null);
