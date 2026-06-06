@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQWG8YZ67K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQWG8YZ67K');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>World AI — The AI Girl Blueprint</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700;1,800&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -25,12 +17,18 @@ nav{position:relative;z-index:10;display:flex;align-items:center;justify-content
 .logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;color:var(--blue)}
 .nav-price{font-size:12px;color:var(--muted);font-weight:300}
 .nav-price strong{color:var(--text)}
+.fomo-banner{background:linear-gradient(90deg,#1a0050,#2d6af6,#1a0050);text-align:center;padding:9px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;position:relative;overflow:hidden}
+.fomo-banner::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:sweep 2.5s ease-in-out infinite}
+.fomo-ticker{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;pointer-events:none}
+.fomo-toast{background:rgba(13,27,48,.96);border:1px solid rgba(77,138,255,.3);border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text);white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.4);backdrop-filter:blur(10px);opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+.fomo-toast.show{opacity:1;transform:translateY(0)}
+.fomo-green{width:8px;height:8px;border-radius:50%;background:#4cc97a;box-shadow:0 0 8px #4cc97a;flex-shrink:0;animation:dot 1.5s ease-in-out infinite}
 .wrap{position:relative;z-index:1;max-width:580px;margin:0 auto;padding:0 20px}
 .hero-img{position:relative;z-index:1;width:100%;max-height:220px;object-fit:cover;object-position:center top;display:block;margin:0 auto 32px;border-radius:14px;border:1px solid var(--border);opacity:0;animation:up .7s .5s forwards}
 .hero{padding:40px 0 24px;text-align:center}
-.hook{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(3.8rem,13vw,6.5rem);line-height:.88;letter-spacing:.02em;color:#fff;margin-bottom:16px;opacity:0;animation:up .6s .1s forwards}
-.hook-arrows{display:block;font-size:1.6rem;letter-spacing:.35em;color:var(--blue);margin-bottom:20px;opacity:0;animation:up .6s .2s forwards}
-.hook-price{display:block;font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,9vw,4rem);line-height:1.1;letter-spacing:.05em;color:var(--blue);margin-bottom:32px;opacity:0;animation:up .6s .3s forwards}
+.hook{display:block;font-family:'Georgia',serif;font-style:normal;font-weight:700;font-size:clamp(2.8rem,10vw,5rem);line-height:1.0;letter-spacing:.01em;color:#fff;margin-bottom:20px;opacity:0;animation:up .6s .1s forwards;text-transform:uppercase;text-align:center}
+.hook-arrows{display:block;font-size:1.2rem;letter-spacing:.5em;color:#fff;margin-bottom:28px;opacity:0;animation:up .6s .2s forwards;text-align:center}
+.hook-price{display:block;font-family:'Arial Black','DM Sans',sans-serif;font-style:normal;font-weight:900;font-size:clamp(1.1rem,4.5vw,1.9rem);line-height:1.25;letter-spacing:.03em;color:#fff;margin-bottom:32px;opacity:0;animation:up .6s .3s forwards;text-transform:uppercase;text-align:center}
 .hero-sub{display:none}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-d);color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:17px 44px;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(45,106,246,.4);transition:transform .2s,box-shadow .2s,background .2s}
 .btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:sweep 2.4s ease-in-out infinite}
@@ -159,8 +157,8 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 .reveal.in{opacity:1;transform:translateY(0)}
 @media(max-width:520px){
   nav{padding:14px 18px}
-  .hook{font-size:clamp(2.4rem,12vw,4rem)}
-  .hook-price{font-size:clamp(2rem,8vw,3.2rem)}
+  .hook{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .hook-price{font-size:clamp(1rem,4.5vw,1.5rem)}
   .btn{width:100%;padding:16px 20px;justify-content:center}
   .circle-zone{width:320px;height:320px}
   .price-block{padding:24px 16px}
@@ -173,33 +171,34 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 <body>
 <div class="glow"></div>
 
+<div class="fomo-banner">⚡ Limited offer — Lock in $4.99 before the price goes up</div>
+
 <nav>
   <div class="logo">World AI</div>
-  <div class="nav-price"><strong>$15</strong> / mo · Cancel anytime</div>
+  <div class="nav-price"><strong>$4.99</strong> / mo · Cancel anytime</div>
 </nav>
 
 <div class="wrap">
   <div class="hero">
-    <span class="hook">WHAT YOU CAN<br>LEARN FOR LESS<br>THAN A NETFLIX<br>SUBSCRIPTION</span>
-    <span class="hook-arrows">↓ ↓ ↓</span>
-    <span class="hook-price">( $15 )</span>
+    <span class="hook">AI<br>OFM FULL<br>BLUEPRINT</span>
+    <span class="hook-arrows">↓ &nbsp; ↓ &nbsp; ↓</span>
+    <span class="hook-price">WHAT YOU CAN<br>LEARN FOR LESS<br>THAN A BIG MAC<br>( $4.99 )</span>
   </div>
 
   <img src="cover.png" alt="World AI" class="hero-img">
 
   <div class="btn-wrap reveal">
     <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
-      Get Access — $15/mo
+      Get Access — $4.99/mo
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
     <p class="btn-meta"><strong>Cancel anytime</strong> · No commitment</p>
   </div>
 
-  <hr class="divider">
 </div>
 
 <div class="wrap">
-  <hr class="divider">
+  <div style="height:140px"></div>
   <h2 class="reveal">THE FULL SYSTEM</h2>
   <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:1.5rem;letter-spacing:.08em;text-transform:uppercase" class="reveal">Click each step</p>
 
@@ -254,8 +253,8 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
   <hr class="divider">
 
   <div class="price-block reveal">
-    <div class="price-label">Simple pricing</div>
-    <div class="price-num"><span>$</span>15</div>
+    <div class="price-label">Exceptional pricing</div>
+    <div class="price-num"><span>$</span>4.99</div>
     <div class="price-per">per month · cancel anytime</div>
     <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:4px;">
       Get Access Now
@@ -268,7 +267,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 </div>
 
 <div class="sticky">
-  <a href="https://whop.com/joined/world-ai-off/products/ll-89/" target="_blank" rel="noopener">Get Access — $15/mo →</a>
+  <a href="https://whop.com/joined/world-ai-off/products/ll-89/" target="_blank" rel="noopener">Get Access — $4.99/mo →</a>
   <p class="sticky-meta">Cancel anytime · No commitment</p>
 </div>
 
@@ -691,14 +690,36 @@ function animChat(wrap,idx){
   obs.observe(document.getElementById('rbox'));
 })();
 </script>
+<div class="fomo-ticker"><div class="fomo-toast" id="fomoToast"><div class="fomo-green"></div><span id="fomoText">Jordan from Miami just joined</span></div></div>
+
 <script>
-document.querySelectorAll('a[href*="whop.com"]').forEach(function(el){
-  el.addEventListener('click', function(){
-    if(typeof gtag === 'function'){
-      gtag('event', 'cta_click', {event_category: 'buy_button', event_label: el.textContent.trim().slice(0,50)});
-    }
-  });
-});
+// FOMO ticker
+(function(){
+  var names=[
+    ['Jordan','Miami'],['Lucas','London'],['Emma','Paris'],['Noah','Toronto'],
+    ['Mia','New York'],['Liam','Sydney'],['Sofia','Barcelona'],['James','Berlin'],
+    ['Olivia','Dubai'],['Ethan','Los Angeles'],['Ava','Amsterdam'],['Mason','Brussels'],
+    ['Isabella','Montreal'],['Logan','Manchester'],['Chloe','Lyon'],['Aiden','Stockholm'],
+    ['Zoe','Vienna'],['Ryan','Dublin'],['Lily','Geneva'],['Nathan','Rome'],
+    ['Hannah','Madrid'],['Dylan','Copenhagen'],['Nora','Porto'],['Jack','Melbourne'],
+    ['Aria','Singapore'],['Tyler','Chicago'],['Luna','Zurich'],['Owen','Edinburgh'],
+    ['Isla','Cape Town'],['Caleb','Mexico City']
+  ];
+  var toast=document.getElementById('fomoToast');
+  var txt=document.getElementById('fomoText');
+  setTimeout(showNext,30000);
+  function scheduleNext(){setTimeout(showNext,50000);}
+  function showNext(){
+    var n=names[Math.floor(Math.random()*names.length)];
+    txt.textContent=n[0]+' from '+n[1]+' just joined';
+    toast.classList.add('show');
+    setTimeout(function(){
+      toast.classList.remove('show');
+      scheduleNext();
+    },4000);
+  }
+})();
 </script>
+
 </body>
 </html>
