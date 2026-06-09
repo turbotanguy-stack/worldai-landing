@@ -15,6 +15,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .glow{position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(45,106,246,.1) 0%,transparent 70%);pointer-events:none;z-index:0}
 nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border)}
 .logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;color:var(--blue)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.12em;color:var(--blue)}
 .nav-price{font-size:12px;color:var(--muted);font-weight:300}
 .nav-price strong{color:var(--text)}
 .fomo-banner{background:linear-gradient(90deg,#1a0050,#2d6af6,#1a0050);text-align:center;padding:9px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;position:relative;overflow:hidden}
@@ -28,7 +29,7 @@ nav{position:relative;z-index:10;display:flex;align-items:center;justify-content
 .hero{padding:40px 0 24px;text-align:center}
 .hook{display:block;font-family:'Georgia',serif;font-style:normal;font-weight:700;font-size:clamp(2.8rem,10vw,5rem);line-height:1.0;letter-spacing:.01em;color:#fff;margin-bottom:20px;opacity:0;animation:up .6s .1s forwards;text-transform:uppercase;text-align:center}
 .hook-arrows{display:block;font-size:1.2rem;letter-spacing:.5em;color:#fff;margin-bottom:28px;opacity:0;animation:up .6s .2s forwards;text-align:center}
-.hook-price{display:block;font-family:'Arial Black','DM Sans',sans-serif;font-style:normal;font-weight:900;font-size:clamp(1.1rem,4.5vw,1.9rem);line-height:1.25;letter-spacing:.03em;color:#fff;margin-bottom:32px;opacity:0;animation:up .6s .3s forwards;text-transform:uppercase;text-align:center}
+.hook-price{display:block;font-family:'Arial Black','DM Sans',sans-serif;font-style:normal;font-weight:900;font-size:clamp(2rem,7.5vw,3.4rem);line-height:1.25;letter-spacing:.03em;color:#fff;margin-bottom:32px;opacity:0;animation:up .6s .3s forwards;text-transform:uppercase;text-align:center}
 .hero-sub{display:none}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-d);color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:17px 44px;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 32px rgba(45,106,246,.4);transition:transform .2s,box-shadow .2s,background .2s}
 .btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:sweep 2.4s ease-in-out infinite}
@@ -174,8 +175,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 <div class="fomo-banner">⚡ Limited offer — Lock in $4.99 before the price goes up</div>
 
 <nav>
-  <div class="logo">World AI</div>
-  <div class="nav-price"><strong>$4.99</strong> / mo · Cancel anytime</div>
+  <div class="nav-logo">World AI</div>
 </nav>
 
 <div class="wrap">
@@ -187,6 +187,32 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
 
   <img src="cover.png" alt="World AI" class="hero-img">
 
+</div>
+
+<div class="wrap">
+  <div style="height:140px"></div>
+
+  <!-- CAROUSEL — avant THE FULL SYSTEM -->
+  <div class="carousel-section reveal">
+    <div class="carousel-track-wrap" id="trackWrap">
+      <div class="carousel-track" id="track">
+        <div class="carousel-slide"><img src="consistent_face.png" alt="Consistent Face"><div class="carousel-caption">Consistent face — every photo</div></div>
+        <div class="carousel-slide carousel-slide-video"><video src="videos_examples.mp4" autoplay muted loop playsinline style="width:100%;display:block;pointer-events:none"></video><div class="carousel-caption">Real video examples</div></div>
+        <div class="carousel-slide"><img src="NSFW__blurry_.png" alt="NSFW Content"><div class="carousel-caption">NSFW content included</div></div>
+        <div class="carousel-slide"><img src="funelling_plan.png" alt="Funneling Plan"><div class="carousel-caption">Complete funnel — followers to income</div></div>
+        <div class="carousel-slide"><img src="all_marketing_apps.png" alt="Marketing"><div class="carousel-caption">6 platforms — full strategy</div></div>
+        <div class="carousel-slide"><img src="monetization_methods.png" alt="Monetization"><div class="carousel-caption">Multiple income streams</div></div>
+        <div class="carousel-slide"><img src="discord_community.png" alt="Discord Community"><div class="carousel-caption">Private Discord community</div></div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="dots">
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <div style="height:32px"></div>
+
+  <!-- BOUTON APRÈS CARROUSEL -->
   <div class="btn-wrap reveal">
     <a href="https://whop.com/joined/world-ai-off/products/ll-89/" class="btn" target="_blank" rel="noopener">
       Get Access — $4.99/mo
@@ -195,10 +221,8 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
     <p class="btn-meta"><strong>Cancel anytime</strong> · No commitment</p>
   </div>
 
-</div>
+  <div style="height:100px"></div>
 
-<div class="wrap">
-  <div style="height:140px"></div>
   <h2 class="reveal">THE FULL SYSTEM</h2>
   <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:1.5rem;letter-spacing:.08em;text-transform:uppercase" class="reveal">Click each step</p>
 
@@ -228,26 +252,6 @@ footer{text-align:center;padding:20px;font-size:11px;color:rgba(122,144,184,.25)
     </div>
     <div class="slider-labels"><span>$500</span><span>$10K+</span></div>
     <p class="rdesc">Results vary based on your execution level.<br>Real results build after 2–3 months of consistency.</p>
-  </div>
-
-  <hr class="divider">
-
-  <!-- CAROUSEL — slow smooth scroll -->
-  <div class="carousel-section reveal">
-    <div class="carousel-track-wrap" id="trackWrap">
-      <div class="carousel-track" id="track">
-        <div class="carousel-slide"><img src="consistent_face.png" alt="Consistent Face"><div class="carousel-caption">Consistent face — every photo</div></div>
-        <div class="carousel-slide carousel-slide-video"><video src="videos_examples.mp4" autoplay muted loop playsinline style="width:100%;display:block;pointer-events:none"></video><div class="carousel-caption">Real video examples</div></div>
-        <div class="carousel-slide"><img src="NSFW__blurry_.png" alt="NSFW Content"><div class="carousel-caption">NSFW content included</div></div>
-        <div class="carousel-slide"><img src="funelling_plan.png" alt="Funneling Plan"><div class="carousel-caption">Complete funnel — followers to income</div></div>
-        <div class="carousel-slide"><img src="all_marketing_apps.png" alt="Marketing"><div class="carousel-caption">6 platforms — full strategy</div></div>
-        <div class="carousel-slide"><img src="monetization_methods.png" alt="Monetization"><div class="carousel-caption">Multiple income streams</div></div>
-        <div class="carousel-slide"><img src="discord_community.png" alt="Discord Community"><div class="carousel-caption">Private Discord community</div></div>
-      </div>
-    </div>
-    <div class="carousel-dots" id="dots">
-      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    </div>
   </div>
 
   <hr class="divider">
